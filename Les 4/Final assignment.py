@@ -23,26 +23,13 @@ def weekendrit(x):
 leeftijd = input('Geef uw leeftijd:')
 
 def ritprijs(leeftijd,weekendrit,afstandKM):
-    if int(leeftijd) < 12 and weekendrit(weekend):
-        tariefmetkorting2 = float(standaardprijs(afstandKM)) - float(standaardprijs(afstandKM) / 100) * 35
-        return (tariefmetkorting2)
-    if int(leeftijd) >= 65 and weekendrit(weekend):
-        tariefmetkorting2 = float(standaardprijs(afstandKM)) - float(standaardprijs(afstandKM) / 100) * 35
-        return (tariefmetkorting2)
-    if int(leeftijd) >= 65:
-        tariefmetkorting1 = float(standaardprijs(afstandKM)) - float(standaardprijs(afstandKM) / 100) * 30
-        return (tariefmetkorting1)
-    if int(leeftijd) < 12:
-        tariefmetkorting1 = float(standaardprijs(afstandKM)) - float(standaardprijs(afstandKM) / 100) * 30
-        return (tariefmetkorting1)
-    if int(leeftijd) >= 12 and weekendrit(weekend):
-        tariefmetkorting3 = float(standaardprijs(afstandKM)) - float(standaardprijs(afstandKM) / 100) * 40
-        return (tariefmetkorting3)
-    if int(leeftijd) < 65 and weekendrit(weekend):
-        tariefmetkorting3 = float(standaardprijs(afstandKM)) - float(standaardprijs(afstandKM) / 100) * 40
-        return (tariefmetkorting3)
-    if int(leeftijd) >= 12 :
-        return (standaardprijs(afstandKM))
-    if int(leeftijd) < 65 :
-        return (standaardprijs(afstandKM))
-print('Uw reis heeft u: €',ritprijs(leeftijd,weekendrit,afstandKM),'gekost')
+    if weekendrit(weekend):
+        if int(leeftijd) <=65 and leeftijd > 12 :
+            return (standaardprijs(afstandKM) - standaardprijs(afstandKM) * 0.30)
+        return (standaardprijs(afstandKM) - standaardprijs(afstandKM) * 0.35)
+    else:
+        if leeftijd <= 65 and leeftijd > 12:
+            return (standaardprijs(afstandKM))
+        return (standaardprijs(afstandKM) - standaardprijs(afstandKM) * 0.40)
+
+print('Uw reis heeft u: €',ritprijs(int(leeftijd),weekendrit,float(afstandKM)),'gekost')
