@@ -1,12 +1,8 @@
-# kluizen = open('d:/HU/Programmeren/Opdrachten/Files/kluizen.txt', 'r+')
-# inhoud =  kluizen.readlines()
 max_kluizen = 12
-
 
 def aantal_kluizen_vrij():
     kluizen = lees_kluizen()
     return (max_kluizen - len(kluizen))
-
 
 def lees_kluizen():
     bestand = open('d:/HU/Programmeren/Opdrachten/Files/kluizen.txt', 'r')
@@ -18,13 +14,11 @@ def lees_kluizen():
     bestand.close()
     return kluisnummers_in_gebruik
 
-
 def schrijven_kluizen(kluizen):
     bestand = open('d:/HU/Programmeren/Opdrachten/Files/kluizen.txt', 'w')
     for kluis in kluizen:
         bestand.writelines(str(kluis[0]) + ';' + kluis[1] + '\n')
     bestand.close()
-
 
 def nieuwe_kluis():
     kluizen = lees_kluizen()
@@ -50,10 +44,8 @@ def nieuwe_kluis():
     else:
         print('Geen kluis beschikbaar')
 
-
 def wachtwoord_kluize():
     return input('Geef uw kluis code:')
-
 
 def kluis_openen():
     kluizen = lees_kluizen()
@@ -65,7 +57,6 @@ def kluis_openen():
             return 'Uw kluis is geopend'
         else:
             return ' Onjuist wachtwoord of kluisnummer'
-
 
 menu = True
 while menu:
